@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FP Motors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#0ea5e9;--primary-dark:#0369a1;--bg-dark:#0f172a;--bg-card:rgba(255,255,255,0.08);--border:#1e293b;--text:#f1f5f9;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;color:var(--text);background:linear-gradient(135deg,#0f172a,#1e293b);}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:linear-gradient(135deg,#000,#111);border-bottom:1px solid var(--border);}
+    .logo-wrap{display:flex;align-items:center;}
+    .logo{height:80px;filter:drop-shadow(0 0 8px rgba(14,165,233,.6));}
+    .welcome-text{font-size:30px;font-weight:800;margin-left:20px;background:linear-gradient(90deg,#0ea5e9,#38bdf8);-webkit-background-clip:text;color:transparent;}
+    nav{background:#111;}
+    .nav-list{display:flex;list-style:none;gap:40px;justify-content:center;padding:20px 0;margin:0;}
+    .nav-list a{text-decoration:none;color:#f8fafc;font-weight:600;font-size:18px;position:relative;transition:.3s;}
+    .nav-list a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:3px;background:var(--primary);transition:.3s;border-radius:2px;}
+    .nav-list a:hover{color:#0ea5e9;}
+    .nav-list a:hover::after{width:100%;}
+    .hero{padding:100px 20px;text-align:center;}
+    .hero h1{font-size:42px;font-weight:800;margin-bottom:16px;}
+    .hero p{font-size:18px;opacity:.9;margin-bottom:30px;}
+    .btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;transition:.3s;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+    .btn.primary{background:var(--primary);color:#fff;}
+    .btn.primary:hover{background:var(--primary-dark);transform:scale(1.05);}
+    .btn.ghost{background:transparent;border:1px solid var(--primary);color:#fff;}
+    .btn.ghost:hover{background:rgba(14,165,233,.1);}
+    .section{padding:80px 20px;}
+    .section.muted{background:rgba(255,255,255,0.02);}
+    .container{max-width:1100px;margin:0 auto;}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;backdrop-filter:blur(10px);margin-bottom:20px;transition:.3s;}
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,.4);}
+    input,textarea{width:100%;padding:12px;margin-bottom:10px;border:1px solid #334155;border-radius:8px;background:#1e293b;color:#fff;}
+    footer{background:#000;color:#94a3b8;text-align:center;padding:20px;font-size:14px;}
+    [data-animate]{opacity:0;transform:translateY(30px);transition:all .8s;}
+    [data-animate].show{opacity:1;transform:none;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo-wrap">
+        <img src="assets/fp-motors-logo.png" alt="FP Motors Logo" class="logo">
+        <span class="welcome-text">Välkommen</span>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#hero" class="active">Hem</a></li>
+        <li><a href="#tjanster">Tjänster</a></li>
+        <li><a href="#bokning">Bokning</a></li>
+        <li><a href="#konto">Konto</a></li>
+        <li><a href="#blogg">Blogg</a></li>
+        <li><a href="#omoss">Om oss</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" data-animate>
+      <div class="container">
+        <h1>Mjukvara, Retrofit, CarPlay & Android Auto</h1>
+        <p>Premiumlösningar för Volkswagen, Audi, BMW och Mercedes</p>
+        <a href="#bokning" class="btn primary">Boka tid</a>
+        <a href="#tjanster" class="btn ghost">Våra tjänster</a>
+      </div>
+    </section>
+
+    <section id="tjanster" class="section" data-animate>
+      <div class="container">
+        <h2>Våra tjänster</h2>
+        <div class="card">🚗 Aktivering / avstängning av funktioner</div>
+        <div class="card">🔧 Retrofit-lösningar</div>
+        <div class="card">📱 Apple CarPlay / Android Auto-integration</div>
+      </div>
+    </section>
+
+    <section id="bokning" class="section muted" data-animate>
+      <div class="container">
+        <h2>Bokning</h2>
+        <p>Onlinekalender och bokningsformulär kommer snart.</p>
+      </div>
+    </section>
+
+    <section id="konto" class="section" data-animate>
+      <div class="container">
+        <h2>Konto</h2>
+        <div id="authArea" class="card">
+          <form id="customerForm">
+            <input name="firstName" placeholder="Förnamn" required>
+            <input name="lastName" placeholder="Efternamn" required>
+            <input name="email" type="email" placeholder="E-post" required>
+            <input name="password" type="password" placeholder="Lösenord" required>
+            <button class="btn primary">Skapa konto</button>
+          </form>
+          <form id="loginForm" style="margin-top:20px;">
+            <input name="email" type="email" placeholder="E-post" required>
+            <input name="password" type="password" placeholder="Lösenord" required>
+            <button class="btn ghost">Logga in</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="blogg" class="section muted" data-animate>
+      <div class="container">
+        <h2>Blogg</h2>
+        <div id="postsList">
+          <div class="card">Inga inlägg ännu.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="yil"></span> FP Motors — Alla rättigheter förbehållna.</p>
+  </footer>
+
+  <script>
+    const els=document.querySelectorAll("[data-animate]");
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
+    },{threshold:.2});
+    els.forEach(el=>observer.observe(el));
+    document.getElementById("yil").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
